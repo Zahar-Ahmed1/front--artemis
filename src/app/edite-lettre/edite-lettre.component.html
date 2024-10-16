@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <h2 class="mb-0">Modifier Lettre</h2>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div hidden class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Id</label>
+                <input type="text"
+                       [(ngModel)]="currentLetter.id"
+                       name="cleintId" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Nom </label>
+                <input type="text"
+                       [(ngModel)]="currentLetter.nom"
+                       name="nomClient" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Version</label>
+                <input type="text"
+                       [(ngModel)]="currentLetter.version"
+                       name="statut" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Titre</label>
+                <input type="text"
+                       [(ngModel)]="currentLetter.titre"
+                       name="typelivraison" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Couverture</label>
+                <input type="text"
+                       [(ngModel)]="currentLetter.couverture"
+                       name="commerciale" class="form-control" />
+              </div>
+
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-auto">
+                <button type="submit" (click)="updateLetter()"  class="btn btn-success">MODIFIER</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

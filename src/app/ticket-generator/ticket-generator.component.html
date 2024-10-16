@@ -1,0 +1,66 @@
+<div class="container p-3">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm border-light">
+        <div class="card-header bg-light text-dark py-4">
+          <h2 class="mb-0 text-center">Générer Ticket</h2>
+        </div>
+        <div class="card-body">
+          <form class="row g-3">
+            <div class="form-group">
+              <label class="form-label">Clients</label>
+              <select class="form-control form-control-lg" id="clientID" name="clientId" [(ngModel)]="selectedClient">
+                <option *ngFor="let client of clients" [ngValue]="client">{{ client.nom }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Letters</label>
+              <select class="form-control form-control-lg" id="letterid" name="letterId" [(ngModel)]="selectedLetter">
+                <option *ngFor="let letter of letters" [ngValue]="letter">{{ letter.nom }}</option>
+              </select>
+            </div>
+            <div class="col-12 text-center mt-4">
+              <button type="button" class="btn btn-outline-primary btn-lg" (click)="generateTickets()">Générer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Section pour afficher les tickets générés -->
+      <div class="container p-3">
+        <div class="row justify-content-center">
+          <div class="col-md-13"> <!-- Agrandir la largeur de la colonne -->
+            <div class="card shadow-sm border-light mt-4" style="min-height: 400px;"> <!-- Ajouter une hauteur minimale -->
+              <div class="card-header bg-light text-dark py-4">
+                <h2 class="mb-0 text-center">Liste des Tickets</h2>
+              </div>
+              <div class="card-body">
+                <div *ngIf="generatedTickets.length === 0" class="text-center">
+                  <p class="justify-content-center p-5"><b>Aucun ticket disponible.</b></p>
+                </div>
+
+                <div class="row" >
+                  <div *ngFor="let ticket of generatedTickets" class="col-md-4 mb-3">
+                    <div class="ticket border p-3">
+                      <p hidden><strong>ID Ticket:</strong> {{ ticket.idTicket }}</p>
+                      <p><strong>Civilite:</strong> {{ ticket.civilite }}</p>
+                      <p><strong>Contact:</strong> {{ ticket.contacts }}</p>
+                      <p><strong>Lettre:</strong> {{ ticket.letter }}</p>
+                      <p><strong>Client:</strong> {{ ticket.client }}</p>
+                      <p><strong>Adresse:</strong> {{ ticket.addresseLivraison }}</p>
+                      <p><strong>Pays</strong> {{ ticket.pays}}</p>
+                      <p><b>---------------</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 text-center mt-4 p-3">
+                <button type="button" class="btn btn-outline-primary btn-lg" (click)="imprimer()">Imprimer tous les tickets</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

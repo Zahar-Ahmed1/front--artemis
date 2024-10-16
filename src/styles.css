@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+.form-floating {
+  position: relative;
+}
+
+.form-floating > input {
+  padding: 1rem;
+  /* autres styles */
+}
+
+.form-floating > label {
+  position: absolute;
+  /* autres styles */
+}

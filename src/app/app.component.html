@@ -1,0 +1,41 @@
+<nav class="p-3 bg-gray-800 shadow-lg d-flex justify-content-center">
+ <!-- <ul class="nav nav-pills">
+    <li *ngFor="let action of actions" class="nav-item">
+      <button
+        (click)="setCurrentAction(action)"
+        routerLink="{{action.route}}"
+        [class]="action==currentAction
+        ?'btn btn-success ms-1 fw-bold border-bottom border-3 border-success':'btn btn-outline-success ms-1'"
+      >
+        <i class="bi bi-{{action.icon}} me-2"></i>
+        {{action.title}}
+      </button>
+    </li>
+    <li class="nav-item dropdown ms-3">
+      <button class="btn btn-outline-success bg-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Plus
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" [routerLink]="['/commerciales']">Commerciaux</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/pays']">Pays</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/villes']">Villes</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/civilites']">Civilites</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/metiers']">Fonctions</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/status']">Statuts</a></li>
+      </ul>
+    </li>
+  </ul>-->
+  <div class="dropdown ms-auto">
+    <button class="btn btn-outline-success bg-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <div *ngIf="authService.isLoggedIn; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>{{authService.loggedUser}}</ng-template>
+      <ng-template #elseBlock>CONNEXION</ng-template>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a *ngIf="!authService.isLoggedIn" class="dropdown-item" href="#">LOGIN</a></li>
+      <li><a *ngIf="authService.isLoggedIn" class="dropdown-item" (click)="logout()">LOGOUT</a></li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-dark text-white py-4">
+          <h2 class="mb-0">Ajouter Contact</h2>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div hidden class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Id Contact</label>
+                <input type="text" [(ngModel)]="newContact.id" name="Id" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Civilite <span style="color: red;">*</span></label>
+                <div class="input-group">
+                  <select class="form-control form-control-lg" id="civiliteID" name="civiliteId" [(ngModel)]="newCiviliteId">
+                    <option *ngFor="let civ of civilites" [value]="civ.id">
+                      {{ civ.civilite }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Nom Contact</label>
+                <input type="text" [(ngModel)]="newContact.nom" name="Nom" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Prenom</label>
+                <input type="text" [(ngModel)]="newContact.prenom" name="Prenom" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Adresse Livraison</label>
+                <input type="text" [(ngModel)]="newContact.adresseLivraison" name="Adresse" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3" hidden>
+                <label class="form-label" >Fonction <span style="color: red;">*</span></label>
+                <div class="input-group">
+                  <select class="form-control form-control-lg" id="metierid" name="metierId" [(ngModel)]="newMetierId">
+                    <option *ngFor="let metier of fon" [value]="metier.id">
+                      {{ metier.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Email</label>
+                <input type="text" [(ngModel)]="newContact.email" name="Email" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Telephone</label>
+                <input type="text" [(ngModel)]="newContact.tel" name="Telephone" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Client <span style="color: red;">*</span></label>
+                <div class="input-group">
+                  <select class="form-control form-control-lg" id="clientID" name="clientId" [(ngModel)]="newClietnId">
+                    <option *ngFor="let client of clients" [value]="client.idClient">
+                      {{ client.nom }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-auto">
+                <button type="submit" (click)="addContact()" class="btn btn-success">
+                  AJOUTER
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

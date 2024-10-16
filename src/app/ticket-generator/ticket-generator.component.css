@@ -1,0 +1,45 @@
+/* Styles généraux */
+body {
+  background-color: #f8f9fa;
+}
+
+/* Ombres pour les cartes */
+.shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour les en-têtes avec dégradé */
+.card-header {
+  background: linear-gradient(135deg, #063a06, #1b5e20);
+}
+
+/* Boutons personnalisés */
+.btn-outline-primary {
+  border-color: #1d2b0f;
+  color: #062515;
+}
+
+.btn-outline-primary:hover {
+  background-color: #153e18;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Bouton avec dégradé */
+.btn-gradient {
+  background: linear-gradient(135deg, #4caf50, #1b5e20);
+  border: none;
+  color: white;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #388e3c, #1b5e20);
+}

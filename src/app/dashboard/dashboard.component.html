@@ -1,0 +1,18 @@
+<div class="container">
+  <h2 class="text-center">Tableau de Bord</h2>
+
+  <div *ngFor="let dataset of lineChartData.datasets; let i = index" class="card mt-4">
+    <div class="card-header">
+      <h4>Statistiques des {{ dataset.label }}</h4>
+    </div>
+    <div class="card-body">
+      <canvas [datasets]="[dataset]"
+
+              [legend]="true"
+              [options]=""
+              [plugins]="[]"
+              baseChart>
+      </canvas>
+    </div>
+  </div>
+</div>

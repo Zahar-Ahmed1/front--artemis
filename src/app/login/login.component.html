@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="row justify-content-md-center">
+    <div class="col-4">
+      <div class="alert alert-danger" *ngIf="error === 1">
+        <strong>User authentication failed</strong>
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" class="form-control" [(ngModel)]="user.username">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password">
+        </div>
+
+        <br>
+        <div class="row justify-content-md-center">
+          <button type="button" (click)="onloggedIn()" class="btn btn-success">Connexion</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

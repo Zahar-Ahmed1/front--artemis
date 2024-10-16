@@ -1,0 +1,45 @@
+
+<div class="container my-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-dark text-white py-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Commerciaux</h3>
+        <button [routerLink]="['/admin/ajouter-commerciale']"  class="btn btn-success">Ajouter Commerciale</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+          <thead class="thead-light">
+          <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Nom</th>
+            <th class="text-center">Actions</th>
+          </tr>
+          </thead>
+          <tbody >
+          <tr  *ngFor="let commerciale of commerciales">
+            <td class="text-center" >{{ commerciale.id }}</td>
+            <td class="text-center">{{ commerciale.nom }}</td>
+            <td class="text-center" style="font-weight: bold;">
+              <a class="btn btn-success btn-sm">MODIFIER</a>
+              <div class="d-inline-block mx-2"></div>
+              <button  (click)="DeleteCommerciale(commerciale)" class="btn btn-danger btn-sm">SUPPRIMER</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="6">
+              total:{{commerciales.length}} Lettres :
+            </td>
+          </tr>
+          </tbody>
+
+
+        </table>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="p-4">
+  <div class="card shadow-lg">
+    <div class="card-header bg-dark text-white py-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Lettres</h3>
+        <div class="card-body d-flex justify-content-evenly  align-items-center">
+          <div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="KwNom" placeholder="Rechercher par nom" class="form-control mr-2">
+            <button (click)="chercherNom()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          <div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="KwTitle" placeholder="Rechercher par Titre" class="form-control mr-2">
+            <button (click)="chercherTitle()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+        <button [routerLink]="['/admin/ajouter-lettre']"  class="btn btn-success">Ajouter Lettre</button>
+
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+          <thead class="thead-light">
+          <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Nom</th>
+            <th class="text-center"> Titre</th>
+            <th class="text-center">Version</th>
+            <th class="text-center">Couverture</th>
+            <th class="text-center">Actions</th>
+          </tr>
+          </thead>
+          <tbody >
+          <tr  *ngFor="let letter of letters.slice(0,3)">
+            <td class="text-center" >{{ letter.id }}</td>
+            <td class="text-center">{{ letter.nom }}</td>
+            <td class="text-center" >{{ letter.titre }}</td>
+            <td class="text-center" >{{ letter.version }}</td>
+            <td class="text-center" >{{ letter.couverture }}</td>
+            <td class="text-center" style="font-weight: bold;">
+              <a [routerLink]="['/admin/edite-lettre', letter.id]" class="btn btn-success btn-sm">MODIFIER</a>
+              <div class="d-inline-block mx-2"></div>
+              <button (click)="DeleteLetter(letter)" class="btn btn-danger btn-sm">SUPPRIMER</button>
+            </td>
+          </tr>
+          <tr>
+          <td colspan="6">
+            total:{{letters.length}} Lettres :
+          </td>
+          </tr>
+          </tbody>
+
+
+        </table>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

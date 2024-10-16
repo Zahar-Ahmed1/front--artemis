@@ -1,0 +1,85 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <h2 class="mb-0">Modifier Contact</h2>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div hidden class="col-sm-6 col-md-4 mb-3">
+                <label  class="form-label">Id Contact </label>
+                <input type="text"
+                       [(ngModel)]="currentCContact.id"
+                       name="cleintId" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Nom Contact</label>
+                <input type="text"
+                       [(ngModel)]="currentCContact.nom"
+                       name="nomClient" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Prenom</label>
+                <input type="text"
+                       [(ngModel)]="currentCContact.prenom"
+                       name="statut" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Adresse Livraison</label>
+                <input type="text"
+                       [(ngModel)]="currentCContact.adresseLivraison"
+                       name="typelivraison" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3" hidden>
+                <label class="form-label">Fonction</label>
+                <select class="form-control form-control-lg"  id="metierID" name="metierId"
+                        [(ngModel)]="newMetierId">
+                  <option *ngFor="let metier of metiers" [value]="metier.id" >
+                    {{ metier.name}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Civilite</label>
+                <select class="form-control form-control-lg"  id="civiliteId" name="civiliteId"
+                        [(ngModel)]="newCiviliteId">
+                  <option *ngFor="let civ of civilites " [value]="civ.id" >
+                    {{ civ.civilite}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Email</label>
+                <input type="text"
+                       [(ngModel)]="currentCContact.email"
+                       name="adresse" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Telephone</label>
+                <input type="text"
+                       [(ngModel)]="currentCContact.tel"
+                       name="pays" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Client</label>
+                <select class="form-control form-control-lg"  id="clientID" name="clientId"
+                        [(ngModel)]="newClientId">
+                  <option *ngFor="let client of clients" [value]="client.idClient" >
+                    {{ client.nom}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-auto">
+                <button type="submit" (click)="updateContact()"  class="btn btn-success">MODIFIER</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

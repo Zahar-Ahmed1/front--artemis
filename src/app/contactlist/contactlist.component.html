@@ -1,0 +1,86 @@
+<div class="p-4">
+  <div class="card shadow-lg">
+    <div class="card-header bg-dark text-white py-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Contacts</h5>
+        <div class="d-flex align-items-center">
+          <div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="keyword" placeholder="Rechercher par nom" class="form-control mr-2">
+            <button (click)="chercherNom()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          <div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="keywordClient" placeholder="Rechercher par Client" class="form-control mr-2">
+            <button (click)="chercherClient()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          <div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="keywordPrenom" placeholder="Rechercher par Prenom" class="form-control mr-2">
+            <button (click)="chercherPrenom()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          <div hidden class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="keywordFonction" placeholder="Rechercher par Fonction" class="form-control mr-2">
+            <button (click)="chercherFonction()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+        <button [routerLink]="['/admin/ajouter-contact']"  class="btn btn-success">Ajouter Contact</button>
+
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+          <thead class="thead-light">
+          <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Civilite</th>
+            <th class="text-center">Nom</th>
+            <th class="text-center">Prenom</th>
+            <th class="text-center">AdresseLivrason</th>
+
+            <th class="text-center">Email</th>
+            <th class="text-center">Telephone</th>
+            <th class="text-center" style="font-weight: bold;">Client</th>
+            <th class="text-center" style="font-weight: bold;">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let contact of contacts.slice(0,3)">
+            <td class="text-center">{{ contact.id }}</td>
+            <td class="text-center" style="font-weight: bold;">{{ contact.civilite?.civilite}}</td>
+            <td class="text-center">{{ contact.nom }}</td>
+            <td class="text-center">{{ contact.prenom }}</td>
+            <td class="text-center">{{ contact.adresseLivraison }}</td>
+            <td class="text-center" hidden style="font-weight: bold;">{{ contact.metier?.name }}</td>
+            <td class="text-center">{{ contact.email }}</td>
+            <td class="text-center">{{ contact.tel }}</td>
+            <td class="text-center" style="font-weight: bold;">{{ contact.client?.nom }}</td>
+            <td class="text-center" style="font-weight: bold;">
+              <a [routerLink]="['/admin/edite-contact', contact.id]" class="btn btn-success btn-sm">
+                <i class="fas fa-edit"></i> MODIFIER
+              </a>
+              <div class="d-inline-block mx-2"></div>
+              <button (click)="DeleteContact(contact)" class="btn btn-danger btn-sm">
+                <i class="fas fa-trash"></i> SUPPRIMER
+              </button>
+            </td>
+          </tr>
+          <tr>
+          <td colspan="10">
+            total:{{contacts.length}} Contacts
+          </td>
+          </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

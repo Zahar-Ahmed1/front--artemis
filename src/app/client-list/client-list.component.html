@@ -1,0 +1,94 @@
+<div class="p-4">
+  <div class="card shadow-lg">
+    <div class="card-header bg-dark text-white py-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Clients</h5>
+        <div class="card-body d-flex justify-content-md-evenly align-items-center">
+          <div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="KwNom" placeholder="nom" class="form-control mr-2">
+            <button (click)="searchNom()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          <div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="KwStatut" placeholder="Statut" class="form-control mr-2">
+            <button (click)="searchStatut()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          <!--<div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="KwAdress" placeholder="Adresse" class="form-control mr-2">
+            <button (click)="searchAdress()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>-->
+        </div>
+        <div class="card-body d-flex justify-content-md-evenly align-items-center">
+          <div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="KwCommerciale" placeholder="Commerciale" class="form-control mr-2">
+            <button (click)="searchCommerciale()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          <div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="KwPays" placeholder="Pays" class="form-control mr-2">
+            <button (click)="searchPays()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          <div class="me-3 d-flex align-items-center">
+            <input type="text" [(ngModel)]="KwVille" placeholder="Ville" class="form-control mr-2">
+            <button (click)="searchVille()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+        <button [routerLink]="['/admin/ajouter-client']"  class="btn btn-success">Ajouter Client</button>
+
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered" id="myTable">
+          <thead class="thead-light">
+          <tr>
+            <th class="text-center">ID <i class="fas fa-sort"></i></th>
+            <th class="text-center">Nom <i class="fas fa-sort"></i></th>
+            <th class="text-center">Statut <i class="fas fa-sort"></i></th>
+            <th class="text-center">Type de Livraison <i class="fas fa-sort"></i></th>
+            <th class="text-center">Commercial <i class="fas fa-sort"></i></th>
+            <th class="text-center">Adresse <i class="fas fa-sort"></i></th>
+            <th class="text-center">Pays <i class="fas fa-sort"></i></th>
+            <th class="text-center">Ville <i class="fas fa-sort"></i></th>
+            <th class="text-center">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let client of clientsList.slice(0,4)" >
+            <td class="text-center">{{ client.idClient }}</td>
+            <td class="text-center">{{ client.nom }}</td>
+            <td class="text-center" style="font-weight: bold;">{{ client.statut?.statut }}</td>
+            <td class="text-center">{{ client.typeLivraison }}</td>
+            <td class="text-center" style="font-weight: bold;">{{ client.commerciale?.nom }}</td>
+            <td class="text-center">{{ client.adresse }}</td>
+            <td class="text-center" style="font-weight: bold;">{{ client.pays?.pays }}</td>
+            <td class="text-center" style="font-weight: bold;">{{ client.ville?.ville }}</td>
+            <td class="text-center">
+              <a [routerLink]="['/admin/edite-client', client.idClient]" class="btn btn-success btn-sm">MODIFIER</a>
+              <div class="d-inline-block mx-2"></div>
+              <button (click)="DeleteClient(client)" class="btn btn-danger btn-sm">SUPPRIMER</button>
+            </td>
+          </tr>
+          <tr>
+          <td colspan="10">
+            total:{{clientsList.length}} Clients :
+          </td>
+          </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-dark text-white py-4">
+          <h2 class="mb-0">Ajouter CLient</h2>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div hidden class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Id Client </label>
+                <input type="text" [(ngModel)]="newClient.idClient" name="cleintId" class="form-control"  />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Nom Client</label>
+                <input type="text" [(ngModel)]="newClient.nom" name="nomClient" class="form-control"  />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Statut <span style="color: red;">*</span></label>
+                <select class="form-control form-control-lg"  id="statutID" name="statutId"
+                [(ngModel)]="newStatutId">
+                  <option *ngFor="let statut of statuts" [value]="statut.id">
+                    {{ statut.statut}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Type Livraison</label>
+                <input type="text" [(ngModel)]="newClient.typeLivraison" name="typelivraison" class="form-control"  />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Commerciale <span style="color: red;">*</span></label>
+                <select class="form-control form-control-lg"  id="commercialeID" name="commercialeId"
+                        [(ngModel)]="newCommercialeId">
+                  <option *ngFor="let commerciale of commerciales" [value]="commerciale.id" >
+                    {{ commerciale.nom}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Adresse</label>
+                <input type="text" [(ngModel)]="newClient.adresse" name="adresse" class="form-control"  />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Pays <span style="color: red;">*</span></label>
+                <select class="form-control form-control-lg"  id="paysID" name="paysId"
+                        [(ngModel)]="newPaysId">
+                  <option *ngFor="let pays of lPays" [value]="pays.idPays" >
+                    {{ pays.pays}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Ville <span style="color: red;">*</span></label>
+                <select class="form-control form-control-lg"  id="villeID" name="villeId"
+                        [(ngModel)]="newVilleId">
+                  <option *ngFor="let ville of villes" [value]="ville.id" >
+                    {{ ville.ville}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-auto">
+                <button type="submit" (click)="addClient()" class="btn btn-success">
+                  AJOUTER
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

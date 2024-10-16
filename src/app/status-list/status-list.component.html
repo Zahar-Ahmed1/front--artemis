@@ -1,0 +1,45 @@
+
+<div class="container my-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-dark text-white py-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Statuts</h3>
+        <button class="btn btn-success" [routerLink]="['/admin/ajouter-status']">Ajouter Statut</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+          <thead class="thead-light">
+          <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Statut</th>
+            <th class="text-center">Actions</th>
+          </tr>
+          </thead>
+          <tbody >
+          <tr  *ngFor="let statut of status">
+            <td class="text-center" >{{ statut.id }}</td>
+            <td class="text-center">{{ statut.statut }}</td>
+            <td class="text-center" style="font-weight: bold;">
+              <a class="btn btn-success btn-sm">MODIFIER</a>
+              <div class="d-inline-block mx-2"></div>
+              <button (click)="DeleteStatut(statut)"  class="btn btn-danger btn-sm">SUPPRIMER</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="6">
+              total:{{status.length}} Lettres :
+            </td>
+          </tr>
+          </tbody>
+
+
+        </table>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

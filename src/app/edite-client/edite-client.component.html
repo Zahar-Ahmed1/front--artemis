@@ -1,0 +1,84 @@
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <h2 class="mb-0">Modifier CLient</h2>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div hidden class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Id Client </label>
+                <input type="text"
+                       [(ngModel)]="currentClient.idClient"
+                       name="cleintId" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Nom Client</label>
+                <input type="text"
+                       [(ngModel)]="currentClient.nom"
+                       name="nomClient" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Statut</label>
+                <select class="form-control form-control-lg"  id="statusId" name="statusId"
+                        [(ngModel)]="newStatusId">
+                  <option *ngFor="let status of status" [value]="status.id" >
+                    {{ status.statut}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Type Livraison</label>
+                <input type="text"
+                       [(ngModel)]="currentClient.typeLivraison"
+                       name="typelivraison" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Commerciale</label>
+                <select class="form-control form-control-lg"  id="CommercialeId" name="CommercialeId"
+                        [(ngModel)]="newCommercialeId">
+                  <option *ngFor="let commerciale of Commerciales" [value]="commerciale.id" >
+                    {{ commerciale.nom}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Adresse</label>
+                <input type="text"
+                       [(ngModel)]="currentClient.adresse"
+                       name="adresse" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Pays</label>
+                <select class="form-control form-control-lg"  id="PaysID" name="PaysId"
+                        [(ngModel)]="newPaysId">
+                  <option *ngFor="let pays of lpays" [value]="pays.idPays" >
+                    {{ pays.pays}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-sm-6 col-md-4 mb-3">
+                <label class="form-label">Ville</label>
+                <select class="form-control form-control-lg"  id="VilleId" name="villeId"
+                        [(ngModel)]="newVilleId">
+                  <option *ngFor="let ville of villes" [value]="ville.id" >
+                    {{ ville.ville}}
+                  </option>
+                </select>
+
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-auto">
+                <button type="submit" (click)="updateClient()"  class="btn btn-success">MODIFIER</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
